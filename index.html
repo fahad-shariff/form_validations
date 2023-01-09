@@ -42,13 +42,14 @@
                             <div class="col-auto">
                             </div>
                           </div>
-                      <button type="submit" class="btn btn-primary" id="save">Submit</button>
+                      <button type="submit" class="btn btn-primary" id="save" onclick="login()">Submit</button>
                       <button type="submit" class="btn btn-primary" id="reset">signup</button>
                     </fieldset>
                   </form>
             </div>
         </div>
         <script>
+            let usermail='';
             let sendbtn= document.getElementById('save');
             let resetbtn= document.getElementById('reset');
             let form =document.getElementById('myLoginForm');
@@ -72,10 +73,37 @@
      localStorage.setItem('loginMail', loginMail);
      loginPassword=loginPassword.value;
      localStorage.setItem('loginPassword', loginPassword);
-     alert(   'welcome'+'  '+ loginMail)
+     this.usermail=loginMail;
+     console.log(this.usermail);
 
  });
-      
+ function login(){
+    
+
+    function func2(){
+  for(var i = 0; i < 3; i++){
+    setTimeout(()=> console.log(i),2000);
+
+}
+}
+func2();
+   let numKeys = localStorage.length;
+
+// Print the keys and values in Local Storage to the console
+for (let i = 0; i < numKeys; i++) {
+  let key = localStorage.key(i);
+  let value = localStorage.getItem(key);
+  console.log(key + ": " + value);
+}
+let name = localStorage.getItem("name");
+let email = localStorage.getItem("email");
+console.log(email)
+if(this.usermail == this.email){
+    console.log('logedin');// redirect t new page
+    alert('welcome back' + '  '+ name)
+    window.location.href = 'file:///D:/baqhi/JS_Concept/form_validations/Signup.html?';
+}
+ }
             
           </script>
 
